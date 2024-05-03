@@ -1,3 +1,4 @@
+const serverUrl = 'https://localhost:32776/';
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -9,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let i = 0; i < menuItems.length; i++) {
 
         menuItems[i].onclick = function(event){
-            url = event.currentTarget.getAttribute('value');
+            url = url = serverUrl + 'board/index?id=' + event.currentTarget.getAttribute('value');
         
             console.log(url);
             
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     addBoardButton.onmousedown = function (event) {
-        window.location.href = document.getElementById("addBoard-url").value;
+        window.location.href = serverUrl + 'home/addBoard';
     }
 })
 

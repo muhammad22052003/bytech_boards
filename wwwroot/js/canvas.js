@@ -25,10 +25,12 @@ brushSizeInput = document.getElementById('brush-size');
 let fontSizeInput = document.getElementById('font-size');
 let textInput = document.getElementById('text-field');
 
-const sendBoardURL = 'https://localhost:7229/api/setboard';
-const loadBoardURL = 'https://localhost:7229/api/getboard';
-const checkUpdateForHavenUrl = 'https://localhost:7229/api/getboard';
-const menuURL = 'https://localhost:7229/home/index';
+const serverUrl = 'https://localhost:32776/';
+
+const sendBoardURL = serverUrl + 'api/setboard';
+const loadBoardURL = serverUrl + 'api/getboard';
+const checkUpdateForHavenUrl = serverUrl + 'api/getboard';
+const menuURL = serverUrl + 'home/index';
 
 let boardId = document.getElementById('board_id').value;
 let lastUpdateId = '?';
@@ -72,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         loadCanvasDataFromServer(loadBoardURL + '?id=' + boardId + '&updateId=' + lastUpdateId);
         while (true) {
-            loadCanvasDataFromServer(loadBoardURL + '?id=' + boardId + '&updateId=' + lastUpdateId);
+            //loadCanvasDataFromServer(loadBoardURL + '?id=' + boardId + '&updateId=' + lastUpdateId);
             await sleep(2500);
         }
     }));
@@ -84,12 +86,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     homeButton.onclick = function () {
         console.log('home');
-        window.location.href = 'https://localhost:7229/home/index';
+        window.location.href = serverUrl + 'home/index';
     }
 
     trashButton.onclick = function () {
         console.log('trash');
-        window.location.href = 'https://localhost:7229/api/deleteboard?id=' + boardId;
+        window.location.href = serverUrl + 'api/deleteboard?id=' + boardId;
     }
 })
 

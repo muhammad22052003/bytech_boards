@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IDBService>((service) =>
 {
-    return new mysqlDBService("server=localhost;port=3306;username=root;password=root;database=bytech_boards");
+    return new npgDBService("Host=dpg-cojnmc6d3nmc73bujtmg-a.oregon-postgres.render.com;Port=5432;Username=root;Password=jc2qjGNwe5ebbgLiIcQYyuEDuMUKNrZz;Database=itransition_task4_iixn");
 });
 
 var app = builder.Build();

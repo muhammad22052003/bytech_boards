@@ -139,8 +139,9 @@ namespace bytech_boards.Controllers
                     await image.CopyToAsync(fileStream);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return Problem(statusCode : 500);
             }
 

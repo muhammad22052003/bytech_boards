@@ -15,7 +15,7 @@
         {
             foreach (var item in Model)
             {
-                <div class="grid-item" id="menu-item" value="https://localhost:7229/board/index?id=@item.Id">
+                <div class="grid-item" id="menu-item" value="@item.Id">
 
                     @{
                         if (File.Exists(item.PathToFile))
@@ -46,7 +46,5 @@
         }
     }
 </div>
-
-<input type="hidden" id="addBoard-url" value="https://localhost:7229/home/addBoard" />
 
 <script src="~/js/menu.js"></script>
