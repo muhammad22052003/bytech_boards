@@ -18,14 +18,7 @@
                 <div class="grid-item" id="menu-item" value="@item.Id">
 
                     @{
-                        if (File.Exists(item.PathToFile))
-                        {
-                            <img class="img-menu" src="~/@(item.Id).bmp">
-                        }
-                        else
-                        {
-                            <img class="img-menu" src="~/empty.bmp">
-                        }
+                        <img class="img-menu" src="~/empty.bmp">
                     }
 
                     <div class="grid-text">
