@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="ex">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/newBoardStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <form class="form-panel" asp-controller="board" asp-action="index" method="post">
+            <div class="inputs">
+                <input type="text" name="name" placeholder="Board name : ">
+
+                <button type="submit">Create</button>
+            </div>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>

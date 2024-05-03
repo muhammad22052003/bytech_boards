@@ -1,0 +1,52 @@
+﻿@model List<BoardModel>;
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Menu";
+}
+
+
+<div class="control-panel" id="add-board-button">
+    <img class="img-tools" src="~/img/plus.png">
+</div>
+
+<div class="container">
+    @{
+        if(Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <div class="grid-item" id="menu-item" value="https://localhost:7229/board/index?id=@item.Id">
+
+                    @{
+                        if (File.Exists(item.PathToFile))
+                        {
+                            <img class="img-menu" src="~/data/@(item.Id).bmp">
+                        }
+                        else
+                        {
+                            <img class="img-menu" src="~/data/empty.bmp">
+                        }
+                    }
+
+                    <div class="grid-text">
+                        @item.Name
+                    </div>
+                    <div class="grid-date">
+                        Created : @item.Created.ToShortDateString()
+                    </div>
+                    <div class="grid-date">
+                        Last update : @item.LastUpdate.ToShortDateString()
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <h4 style="justify-content:center; display:flex; flex-direction:column;height:100%;margin-top:30px">No existing boards you can create new ones</h4>
+        }
+    }
+</div>
+
+<input type="hidden" id="addBoard-url" value="https://localhost:7229/home/addBoard" />
+
+<script src="~/js/menu.js"></script>

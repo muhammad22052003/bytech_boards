@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Board";
+}
+@model BoardModel
+
+<div class="control-panel">
+    <button id="trash-button" class="control-button">
+        <img class="img-control" id="trash-button" src="~/img/trash.png">
+    </button>
+
+    <input type="color" id="brush-color">
+    <button id="free-mode" class="control-button" onclick="setFreeMode()">Free Mode</button>
+    <button id="x-mode" class="control-button" onclick="setXMode()">X / Mode</button>
+    <button id="y-mode" class="control-button" onclick="setYMode()">Y / Mode</button>
+    <button id="clear" class="control-button" onclick="clearAll()">Clear All</button>
+    <button id="fill-mode" class="control-button" onclick="setFillStyledMode()">Fill Style</button>
+    <input type="number" id="brush-size" min="1" max="100" step="1" value="1">
+    <input type="number" id="font-size" min="1" max="100" step="1" value="12">
+    <input type="text" id="text-field">
+    <input type="color" id="fill-color">
+
+    <button id="home-button" class="control-button">
+        <img class="img-control" id="home-button" src="~/img/home.png">
+    </button>
+
+</div>
+
+<div class="container">
+
+    <div class="vertical-center">
+        <div class="tools-panel" id="tools-panel">
+            <button checked="true" id="cursor-tool" class="tool-button" onclick="setCursor()"><img class="img-tools" src="~/img/cursor.png"></button>
+            <button checked="true" id="pen-tool" class="tool-button" onclick="setPencil()"><img class="img-tools" src="~/img/pen.png"></button>
+            <button id="erase-tool" class="tool-button" onclick="setEraser()"><img class="img-tools" src="~/img/eraser.png"></button>
+            <button id="rec-tool" class="tool-button" onclick="setRectangle()"><img class="img-tools" src="~/img/rec.png"></button>
+            <button id="cir-tool" class="tool-button" onclick="setElipse()"><img class="img-tools" src="~/img/circle.png"></button>
+            <button id="text-tool" class="tool-button" onclick="setText()"><img class="img-tools" src="~/img/text.png"></button>
+        </div>
+    </div>
+
+    <div class="board-panel">
+        <canvas width="1280" height="720" id="canvas-board"></canvas>
+    </div>
+
+</div>
+
+<input type="hidden" id="board_id" value="@Model.Id">
+
+<script src="~/js/canvas.js"></script>
