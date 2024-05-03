@@ -95,7 +95,7 @@ namespace bytech_boards.Controllers
             {
                 if (System.IO.File.Exists(board.PathToFile))
                 {
-                    System.IO.File.Delete(board.PathToFile);
+                    //System.IO.File.Delete(board.PathToFile);
                 }
 
                 await _iDBService.DeleteData("boards", board);

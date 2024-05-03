@@ -2,6 +2,7 @@
 using bytech_boards.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace bytech_boards.Controllers
 {
@@ -10,6 +11,11 @@ namespace bytech_boards.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IDBService _dBService;
 
+        public class AddBoardModel
+        {
+            [Required]
+            public string name { get; set; }
+        }
         public BoardController(ILogger<HomeController> logger, IDBService dBService)
         {
             _logger = logger;
@@ -27,12 +33,17 @@ namespace bytech_boards.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(string name, bool post = false)
+        public async Task<IActionResult> Index([FromForm]AddBoardModel form)
         {
+            if(!ModelState.IsValid)
+            {
+                return RedirectToAction("addboard", "home");
+            }
+
             BoardModel board = new BoardModel()
             {
                 Id = Guid.NewGuid().ToString().Replace("-",""),
-                Name = name,
+                Name = form.name,
                 Created = DateTime.Now,
                 lastUpdateId = Guid.NewGuid().ToString().Replace("-",""),
                 LastUpdate = DateTime.Now,

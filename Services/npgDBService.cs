@@ -80,7 +80,7 @@ namespace bytech_boards.Services
 
             await OpenConnection();
 
-            await command.ExecuteNonQueryAsync();
+            command.ExecuteNonQuery();
 
             await CloseConnection();
         }
@@ -96,7 +96,7 @@ namespace bytech_boards.Services
 
             await OpenConnection();
 
-            await command.ExecuteNonQueryAsync();
+            command.ExecuteNonQuery();
 
             await CloseConnection();
         }
@@ -146,7 +146,7 @@ namespace bytech_boards.Services
 
             await OpenConnection();
 
-            await command.ExecuteNonQueryAsync();
+            command.ExecuteNonQuery();
 
             await CloseConnection();
         }

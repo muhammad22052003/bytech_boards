@@ -26,6 +26,7 @@ let fontSizeInput = document.getElementById('font-size');
 let textInput = document.getElementById('text-field');
 
 const serverUrl = 'https://bytech-boards.onrender.com/';
+//const serverUrl = 'https://localhost:32779/';
 
 const sendBoardURL = serverUrl + 'api/setboard';
 const loadBoardURL = serverUrl + 'api/getboard';
@@ -74,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         loadCanvasDataFromServer(loadBoardURL + '?id=' + boardId + '&updateId=' + lastUpdateId);
         while (true) {
-            //loadCanvasDataFromServer(loadBoardURL + '?id=' + boardId + '&updateId=' + lastUpdateId);
+            loadCanvasDataFromServer(loadBoardURL + '?id=' + boardId + '&updateId=' + lastUpdateId);
             await sleep(2500);
         }
     }));
