@@ -27,7 +27,7 @@ namespace bytech_boards.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(string name, bool post = true)
+        public async Task<IActionResult> Index(string name, bool post = false)
         {
             BoardModel board = new BoardModel()
             {
