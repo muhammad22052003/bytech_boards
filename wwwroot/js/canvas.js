@@ -25,7 +25,7 @@ brushSizeInput = document.getElementById('brush-size');
 let fontSizeInput = document.getElementById('font-size');
 let textInput = document.getElementById('text-field');
 
-const serverUrl = 'https://localhost:32776/';
+const serverUrl = 'https://bytech-boards.onrender.com/';
 
 const sendBoardURL = serverUrl + 'api/setboard';
 const loadBoardURL = serverUrl + 'api/getboard';

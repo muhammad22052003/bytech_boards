@@ -1,4 +1,4 @@
-const serverUrl = 'https://localhost:32776/';
+const serverUrl = 'https://bytech-boards.onrender.com/';
 
 document.addEventListener('DOMContentLoaded', function () {
 
