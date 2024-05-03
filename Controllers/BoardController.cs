@@ -50,7 +50,7 @@ namespace bytech_boards.Controllers
             };
 
 
-            board.PathToFile = "wwwroot/data/" + board.Id.ToString().Replace("-", "") + ".bmp";
+            board.PathToFile = board.Id.ToString().Replace("-", "") + ".bmp";
 
             await _dBService.AddData("boards", board);
 
